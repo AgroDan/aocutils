@@ -5,20 +5,20 @@ package aocutils
 // This allows me to add whatever data I want without creating
 // a wrapper function in the stack
 
-type GStack[T any] struct {
+type Stack[T any] struct {
 	element []T
 }
 
-func NewGStack[T any]() GStack[T] {
-	return GStack[T]{}
+func NewStack[T any]() Stack[T] {
+	return Stack[T]{}
 }
 
-func (s *GStack[T]) Push(element T) {
+func (s *Stack[T]) Push(element T) {
 	// Pushes an element onto the generic stack
 	s.element = append(s.element, element)
 }
 
-func (s *GStack[T]) Pop() (T, bool) {
+func (s *Stack[T]) Pop() (T, bool) {
 	if len(s.element) == 0 {
 		var zero T
 		return zero, false
@@ -30,7 +30,7 @@ func (s *GStack[T]) Pop() (T, bool) {
 	return top, true
 }
 
-func (s *GStack[T]) Peek() (T, bool) {
+func (s *Stack[T]) Peek() (T, bool) {
 	// peeks at the top of the stack,
 	// doesn't manipulate otherwise
 	if len(s.element) == 0 {
@@ -41,10 +41,10 @@ func (s *GStack[T]) Peek() (T, bool) {
 	return s.element[len(s.element)-1], true
 }
 
-func (s *GStack[T]) IsEmpty() bool {
+func (s *Stack[T]) IsEmpty() bool {
 	return len(s.element) == 0
 }
 
-func (s *GStack[T]) Size() int {
+func (s *Stack[T]) Size() int {
 	return len(s.element)
 }
