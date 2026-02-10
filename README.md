@@ -5,7 +5,7 @@ Just my list of utils that I'll modify from a git repository. May offer more des
 To use these in another module, run the following:
 
 ```terminal
-$ go get github.com/AgroDan/aocutils@v0.2.0  # or whatever version
+$ go get github.com/AgroDan/aocutils@v0.2.1  # or whatever version
 $ go mod tidy
 ```
 
