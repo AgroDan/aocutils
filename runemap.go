@@ -27,6 +27,21 @@ func NewRunemap(in []string) Runemap {
 	return newRunemap
 }
 
+func GenerateRunemap(width, height int, fill rune) Runemap {
+	// this will generate a blank runemap, or at least a runemap
+	// filled with a specific rune. You can use the Set() function
+	// to add things to the existing map.
+	newRunemap := Runemap{}
+	for y := 0; y < height; y++ {
+		var rowSlice []rune
+		for x := 0; x < width; x++ {
+			rowSlice = append(rowSlice, fill)
+		}
+		newRunemap.m = append(newRunemap.m, rowSlice)
+	}
+	return newRunemap
+}
+
 func (r Runemap) Print() {
 	// Just prints the runemap
 	for y := range r.m {

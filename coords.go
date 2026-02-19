@@ -134,6 +134,21 @@ func (c Coord) Parallel(dir int) []Coord {
 	}
 }
 
+func (c Coord) IsAdjacent(other Coord) bool {
+	// Checks to see if the other coordinate is
+	// adjacent to this current coordinate. This also
+	// accounts for diagonally adjacent.
+	return Abs(c.X-other.X) <= 1 && Abs(c.Y-other.Y) <= 1
+}
+
+func (c Coord) IsOrthogonallyAdjacent(other Coord) bool {
+	// Checks to see if the other coordinate is
+	// orthogonally adjacent to this current coordinate.
+	// This means next to, but NOT diagonally adjacent.
+	return (Abs(c.X-other.X) == 1 && c.Y == other.Y) ||
+		(Abs(c.Y-other.Y) == 1 && c.X == other.X)
+}
+
 func TurnRight(dir int) int {
 	// given the above declarations of directions, will return the
 	// direction which is 90 degrees right from that particular direction.
